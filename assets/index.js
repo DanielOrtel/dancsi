@@ -28,8 +28,9 @@ import kekLevel from './elements/kek-level-jobb-oldal.png';
 import lilaHegy from './elements/lila-hegy.png';
 import rokaGomba from './elements/roka-gomba-jobb-oldal.png';
 import zoldPafrany from './elements/zold-pafrany.png';
+import jobbDomb from './elements/jobb-domb.png'
 // makakok
-import noncsim from './makakok/noncsim-sprite.png';
+import noncsim from './makakok/noncsim-sprite-3.png';
 import danim from './makakok/danim-sprite.png';
 import madar from './makakok/madar-sprite.png';
 
@@ -55,7 +56,8 @@ export const Elements = [
   kekLevel2,
   lilaHegy,
   rokaGomba,
-  zoldPafrany
+  zoldPafrany,
+  jobbDomb
 ];
 
 export const Static = [nap, felho1, felho2];

@@ -1,19 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
-import styled, { keyframes, css } from 'styled-components';
-import { query } from 'utils/media';
-import Page from 'components/page';
-
-import Container from 'components/container';
-import nap from '../../../assets/static/nap.png';
+import React, { useState, useEffect } from 'react';
 import felhoNagy from '../../../assets/static/felhok-nagy.png';
 import felhoKicsi from '../../../assets/static/felhok-kicsi.png';
 import Button from 'components/button';
 import Spinner from 'components/loader';
 import * as Styled from './styled';
+import useIsMedia from '../../../hooks/use-is-media';
+import Spacer from '../../../components/spacer';
 
 export default function Main({ start, setStart, loading }) {
   const [isLoading, setIsLoading] = useState(loading);
   const [isStarting, setIsStarting] = useState(false);
+  const isPhone = useIsMedia('phone');
 
   useEffect(() => {
     const setLoading = setTimeout(() => {
@@ -47,10 +44,19 @@ export default function Main({ start, setStart, loading }) {
           </Styled.FelhoNagy>
           <Styled.FelhoKicsi>
             <Button src={felhoKicsi.src} width={start ? '200px' : '300px'} onClick={() => setStart(true)}>
-              Vagy engem
+              Indítsd el
             </Button>
           </Styled.FelhoKicsi>
         </Styled.Felhok>
+        <Spacer y={6} />
+        <Styled.Text $starting={isStarting} $start={start} $loading={loading}>Evel a meghívóval jár kisérő zene is. Ha nem otthon vagy, ajánlott a fülhallgató.</Styled.Text>
+        <Spacer y={4} />
+        {isPhone && (
+          <>
+            <Styled.Text $starting={isStarting} $start={start} $loading={loading}>Jobb egy rendes képernyöröl megnézni. Mobilon nem az igazi.</Styled.Text>
+            <Spacer y={4} />
+          </>
+        )}
       </Styled.Container>
     </Styled.Main>
   );

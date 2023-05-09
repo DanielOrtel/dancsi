@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  target: "serverless",
-  future: { webpack5: true },
 
   webpack(config, { isServer, dev }) {
     const ASSET_OUTPUT_PATH = `${isServer ? '../' : ''}../public/`;

@@ -36,8 +36,8 @@ export default function Page({ children }) {
   return (
     <div>
       <Head>
-        <title>Noncsi es Dani</title>
-        <meta name="description" content="Noncsi es Dani esküvő meghívó" />
+        <title>Noncsi és Dani</title>
+        <meta name="description" content="Noncsi és Dani esküvő meghívó" />
         <link rel="icon" href={favicon} />
       </Head>
 

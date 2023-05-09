@@ -6,7 +6,7 @@ export const ModalHeader = styled.div`
   align-items: center;
   padding: 15px;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.lightBlue};
+  background-color: transparent;
   width: 100%;
   flex-shrink: 0;
   z-index: 1;
@@ -26,6 +26,9 @@ export const XIcon = styled(Icon)`
   margin-left: auto;
   cursor: pointer;
   fill: white;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.turquoise};
+  padding: 8px;
 
   &:hover {
     fill: ${({ theme }) => theme.lightBlue};

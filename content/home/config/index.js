@@ -1,4 +1,4 @@
-export const animationElements = (layers, elements, sky, makakos) => ({
+export const animationElements = (layers, elements, sky, makakos, isPhone) => ({
   layers: {
     zero: {
       width: 1920,
@@ -66,7 +66,7 @@ export const animationElements = (layers, elements, sky, makakos) => ({
         flyingAndStopping: [0]
       },
       position: {
-        x: 1200,
+        x: isPhone ? 900 : 1200,
         y: 180,
         directionX: 'right'
       }
@@ -85,7 +85,7 @@ export const animationElements = (layers, elements, sky, makakos) => ({
         flyingAndStopping: [0]
       },
       position: {
-        x: 300,
+        x: isPhone ? 500 : 300,
         y: 70,
         directionX: 'left'
       },
@@ -214,23 +214,30 @@ export const animationElements = (layers, elements, sky, makakos) => ({
       height: 267,
       sequence: [],
       image: elements[19]
+    },
+    jobbDomb: {
+      width: 867,
+      height: 525,
+      sequence: [],
+      image: elements[20],
+      disableLoading: true
     }
   },
   makakos: {
     noncsim: {
-      width: 301,
-      height: 480,
+      width: 285,
+      height: 451,
       sequenceY: {
         walking: 0,
         idle: 1
       },
       sequenceX: {
-        walking: [0, 1, 2, 3, 4],
+        walking: [0, 1, 2, 3, 4, 5, 6, 7, 5, 4],
         idle: [0, 1, 2, 1, 2, 1, 0]
       },
       position: {
         x: 920,
-        y: 500,
+        y: 560,
         directionX: 'right'
       },
       image: makakos[0]
@@ -269,7 +276,7 @@ export const animationElements = (layers, elements, sky, makakos) => ({
         flyingAndStopping: [0, 1, 2]
       },
       position: {
-        x: 540,
+        x: isPhone ? 800 : 540,
         y: 200,
         directionX: 'right'
       },

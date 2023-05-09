@@ -29,10 +29,12 @@ export const Image = styled.img`
 `;
 
 export const Text = styled.div`
+  ${({ theme }) => theme.fonts.handelson};
   z-index: 1;
   position: absolute;
-  font-size: 20px;
-  line-height: 26px;
-  font-weight: bold;
-  color: white;
+  font-size: 40px;
+  line-height: 42px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.turquoise};;
 `;

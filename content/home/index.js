@@ -6,6 +6,7 @@ import { usePreloadImages } from '../../hooks/use-preload-images';
 import AnimationLayer from './animation-layer';
 import Main from './main';
 import EndScreen from './end-screen';
+import useIsMedia from "../../hooks/use-is-media";
 
 function fetchAudio(url) {
   return new Promise((resolve, reject) => {
@@ -19,6 +20,7 @@ function fetchAudio(url) {
 }
 
 export default function Home() {
+  const isPhone = useIsMedia('phone');
   const [start, setStart] = useState(false);
   const [backgroundAssetsLoaded, backgroundAssets] = usePreloadImages(...Layers);
   const [elementsAssetsLoaded, elementsAssets] = usePreloadImages(...Elements);
@@ -74,6 +76,7 @@ export default function Home() {
           setOverState={setOver}
           makakokRef={makakokRef}
           makakokLoopRef={makakokLoopRef}
+          isPhone={isPhone}
         />
       )}
       {over && <EndScreen />}

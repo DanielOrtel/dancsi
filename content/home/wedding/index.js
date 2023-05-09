@@ -3,7 +3,7 @@ import sky from '../sky';
 import layers from '../layers';
 import elements from '../elements';
 
-import makakos, { Makako } from '../makako';
+import makakos from '../makako';
 
 const TimeFrameDelta = 400;
 const MaxTimeFrame = 108000;
@@ -230,7 +230,7 @@ const AnimationSequence = {
 };
 
 export class Wedding {
-  constructor({ width, height, canvas, config, setOverState }) {
+  constructor({ width, height, canvas, config, setOverState, isPhone }) {
     this.width = width;
     this.height = height;
     this.speed = 0;
@@ -239,7 +239,7 @@ export class Wedding {
     this.fps = 30;
     this.animationTiming = 160;
     this.elements = elements(this, config);
-    this.makakos = makakos(this, config);
+    this.makakos = makakos(this, config, isPhone);
     this.sky = sky(this, config, this.elements, this.makakos);
     this.layers = layers(this, config, this.elements, this.makakos);
     this.background = background(this, this.layers, this.sky);

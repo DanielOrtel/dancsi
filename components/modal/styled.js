@@ -39,23 +39,65 @@ export const keyframeSlideY = (from, to) => keyframes`
   }
 `;
 
+export const keyframeScale = (from, to) => keyframes`
+  from {
+    transform: scale(${from});
+  }
+  to {
+    transform: scale(${to});
+  }
+`;
+
+export const keyframesBackground = keyframes`
+  0% {
+    background: transparent;
+  }
+  
+  98% {
+    background: transparent;
+  }
+  
+  100% {
+    background: ${({ theme }) => theme.turquoise};;
+  }
+`;
+
+export const keyframeHide = keyframes`
+  0% {
+    opacity: 1;
+  }
+  
+  98% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+`;
+
 export const slideInTop = keyframeSlideY(-100, 0);
 export const slideInBottom = keyframeSlideY(100, 0);
 export const slideInLeft = keyframeSlideX(-100, 0);
 export const slideInRight = keyframeSlideX(100, 0);
 
+export const scaleUp = keyframeScale(0, 1);
+
 export const keyframeFadeInModalBG = keyframes`
-  from {
+  0% {
     opacity: 0;
+    visibility: hidden;
   }
 
-  to {
+  100% {
     opacity: 1;
+    visibility: visible;
   }
 `;
 
 const animate = (anim) => css`
-  animation: ${anim} 400ms cubic-bezier(0.77, 0.2, 0.05, 1);
+  animation: ${anim} 800ms cubic-bezier(0.77, 0.2, 0.05, 1);
+  animation-fill-mode: forwards;
 `;
 
 const largePhoneStyle = css`
@@ -79,9 +121,18 @@ export const ModalBackground = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.01);
 
   ${({ $canAnimate }) => $canAnimate && animate(keyframeFadeInModalBG)}
+`;
+
+export const ModalImage = styled.img`
+  position: absolute;
+  width: auto;
+  height: 100vh;
+
+  ${query.tabletPhone`
+    height: 160vh;
+  `};
 `;
 
 export const ModalPosition = styled.div`
@@ -90,8 +141,9 @@ export const ModalPosition = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-y: auto;
   display: flex;
+  transform-origin: 50% 16%;
+  overflow: visible;
 
   ${({ $position, $canAnimate }) => {
     switch ($position) {
@@ -100,7 +152,7 @@ export const ModalPosition = styled.div`
           justify-content: center;
           align-items: center;
 
-          ${$canAnimate && animate(slideInBottom)}
+          ${$canAnimate && animate(scaleUp)}
         `;
       case MODAL_POSITIONS.centeredTop:
         return css`
@@ -108,13 +160,13 @@ export const ModalPosition = styled.div`
           align-items: flex-start;
           margin-top: 100px;
 
-          ${$canAnimate && animate(slideInBottom)};
+          ${$canAnimate && animate(scaleUp)};
         `;
       case MODAL_POSITIONS.top:
         return css`
           align-items: flex-start;
 
-          ${$canAnimate && animate(slideInTop)}
+          ${$canAnimate && animate(scaleUp)}
         `;
       case MODAL_POSITIONS.right:
         return css`
@@ -153,9 +205,9 @@ export const ModalBody = styled.div`
   align-items: center;
   max-width: ${({ $maxWidth }) => $maxWidth || '100%'};
   max-height: ${({ $maxHeight }) => $maxHeight || 'auto'};
-  overflow: hidden;
   box-sizing: border-box;
-  box-shadow: 0 2px 6px 0 rgba(51, 51, 51, 0.13);
+  overflow-y: scroll;
+  ${animate(keyframeFadeInModalBG)}
 
   ${({ $size }) => {
     switch ($size) {
@@ -164,8 +216,8 @@ export const ModalBody = styled.div`
           width: auto;
           height: auto;
           min-height: 10vh;
-          margin-top: 64px;
-          margin-bottom: 64px;
+          margin-top: 120px;
+          margin-bottom: 120px;
 
           ${query.tabletPhone`${largePhoneStyle}`}
         `;
@@ -178,12 +230,12 @@ export const ModalBody = styled.div`
         return css`
           flex-basis: 1020px;
           max-width: 1020px;
-          max-height: calc(100vh - 128px);
+          max-height: calc(100vh - 160px);
           height: 100%;
           min-height: 10vh;
           border-radius: 10px;
-          margin-top: 64px;
-          margin-bottom: 64px;
+          margin-top: 80px;
+          margin-bottom: 80px;
 
           ${query.tabletPhone`${largePhoneStyle}`}
         `;

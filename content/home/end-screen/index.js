@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import felhoNagy from '../../../assets/static/felhok-nagy.png';
+import felhoFeher from '../../../assets/static/felho-feher.png';
 import Button from 'components/button';
 import * as Styled from './styled';
 import Modal from 'components/modal';
 import ModalHeader from '../../../components/modal/modal-header';
-import { ModalContext } from '../../../components/modal/provider';
 import ModalContent from '../../../components/modal/modal-content';
+import InfoButtons from './info-buttons';
+import Spacer from '../../../components/spacer';
 
 export default function EndScreen() {
   const [open, setOpen] = useState(false);
   const [start, setStart] = useState(false);
+  const openUrl = () => window.open(
+    'https://docs.google.com/forms/d/e/1FAIpQLSdoH2JpzAfomceC1n-QpJaG8A3WTjwHIAQHy8cDxwpXFTzW-w/viewform',
+    '_blank'
+  );
 
   const delay = () => setTimeout(() => setStart(true), 1600);
 
@@ -30,11 +36,38 @@ export default function EndScreen() {
         <Modal onClose={() => setOpen(false)}>
           <ModalHeader></ModalHeader>
           <ModalContent>
-            <h2>Kedves családunk és barátaink!</h2>
-            <p>
-              Szeretettel meghívunk, hogy velünk örüljetek, mikor 2023 június 17-én 13 órakor Benedekmezőn egybekelünk. Tartsatok velünk e
-              csodás napon!
-            </p>
+            <Styled.Content>
+              <Styled.LargeHeader>Dani és Noncsi</Styled.LargeHeader>
+              <Spacer y={4} />
+              <Styled.SubHeader>Kedves családunk és barátaink!</Styled.SubHeader>
+              <Spacer y={6} />
+              <Styled.InviteText>
+                Szeretettel meghívunk, hogy velünk örüljetek, mikor 2023 június 17-én 13 órakor Benedekmezőn egybekelünk. <b /> Tartsatok
+                velünk e csodás napon!
+              </Styled.InviteText>
+              <Spacer y={8} />
+
+              <InfoButtons />
+              <Spacer y={8} />
+
+              <Styled.InviteText>
+                <strong>Dresscode:</strong> kerti-parti öltözet, amiben kényelmesen érzed magad, nem ajánlott a magassarkú lábbeli a talaj
+                miatt.
+              </Styled.InviteText>
+              <Spacer y={8} />
+              <Styled.InviteText>
+                Kérjük részvételi szándékotokat május 25-ig jelezzétek, illetve töltsétek ki az alábbi kérdőívet!
+              </Styled.InviteText>
+              <Spacer y={8} />
+              <Button src={felhoFeher.src} width="360px" onClick={openUrl}>
+                KÉRDŐÍV
+              </Button>
+              <Spacer y={5} />
+              <Styled.Small>
+                Illusztráció: Csibi Boróka, Design: Jakab Eszter, Zene: Musspell, és minden más, főleg a meghívó túlbonyolítása, a jövőbeli
+                pár.
+              </Styled.Small>
+            </Styled.Content>
           </ModalContent>
         </Modal>
       )}

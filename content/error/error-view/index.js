@@ -6,11 +6,15 @@ import { query } from 'utils/media';
 import useFavicon from 'hooks/use-favicon';
 import Grid from 'components/grid';
 import Col from 'components/grid/col';
+import Button from '../../../components/button';
+import felhoNagy from 'assets/static/felhok-nagy.png';
+import pohar from './pohar.png';
 
 export const StyledErrorGrid = styled(Grid)`
   min-height: 60%;
   flex-grow: 1;
   max-width: 1200px;
+  color: ${({ theme }) => theme.turquoise};
 `;
 
 export const StyledErrorCol = styled(Col)`
@@ -34,15 +38,15 @@ const StyledButton = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   padding: 14px 30px;
-  color: ${({ theme }) => theme.red};
-  fill: ${({ theme }) => theme.red};
-  border: 1px solid ${({ theme }) => theme.red};
+  color: ${({ theme }) => theme.turquoise};
+  fill: ${({ theme }) => theme.turquoise};
+  border: 1px solid ${({ theme }) => theme.turquoise};
 
   &:hover,
   &:active {
     color: ${({ theme }) => theme.white};
     fill: ${({ theme }) => theme.white};
-    background: ${({ theme }) => theme.red};
+    background: ${({ theme }) => theme.turquoise};
   }
 
   ${query.phone`
@@ -52,7 +56,8 @@ const StyledButton = styled.button`
 
 export const StyledErrorImage = styled.img`
   height: auto;
-  width: 320px;
+  width: 640px;
+  max-width: 100%;
 `;
 
 function ErrorView() {
@@ -62,18 +67,20 @@ function ErrorView() {
   return (
     <>
       <Head>
-        <title>404 - Eszter és Jozsó</title>
+        <title>404 - Dani és Noncsi</title>
         <meta name="robots" content="noindex" />
         <link rel="icon" href={favicon} />
       </Head>
       <StyledErrorGrid>
         <StyledErrorCol width={12}>
-          <StyledErrorImage src="media/meghivo.png" alt="404 meghivo" />
+          <StyledErrorImage src={pohar.src} alt="404 meghivo" />
         </StyledErrorCol>
         <StyledErrorCol width={12}>
-          <h2>Nem találtuk itt se Esztert, se Jozsót</h2>
+          <h2>Nem találtuk itt se Danit, se Noncsit</h2>
           <h4>Ez egy egyszerű oldal, nincs más amit nézni. Kérlek navigálj vissza a föoldalra.</h4>
-          <StyledButton onClick={() => push('/')}>Vissza a föoldalra</StyledButton>
+          <Button src={felhoNagy.src} width="400px" onClick={() => push('/')}>
+            Vissza a föoldalra
+          </Button>
         </StyledErrorCol>
       </StyledErrorGrid>
     </>

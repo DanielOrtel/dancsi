@@ -180,7 +180,7 @@ class Layer {
 
 export default function layers(wedding, config, elements, makakos) {
   const one = new Layer(wedding, config.layers.one, -1800, [], [], 0, true);
-  const two = new Layer(wedding, config.layers.two, -700, []);
+  const two = new Layer(wedding, config.layers.two, -600, []);
   const three = new Layer(wedding, config.layers.three, -380, [
     elements.kisKekFaJobb2,
     elements.lilaHegy,
@@ -193,6 +193,7 @@ export default function layers(wedding, config, elements, makakos) {
     config.layers.four,
     -280,
     [
+      elements.jobbDomb,
       elements.fenyo,
       elements.fenyo2,
       elements.fenyo3,
@@ -224,7 +225,7 @@ export default function layers(wedding, config, elements, makakos) {
       elements.zoldPafrany
     ],
     [makakos.noncsim, makakos.danim, makakos.madar],
-    20
+    21
   );
 
   return {

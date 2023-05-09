@@ -2,7 +2,8 @@ import React, { ReactNode, useEffect } from 'react';
 import Portal from 'components/portal';
 import { ModalProvider } from './provider';
 import * as Styled from './styled';
-import { MODAL_SIZES, MODAL_POSITIONS } from './styled';
+import {MODAL_SIZES, MODAL_POSITIONS, ModalImage} from './styled';
+import modal from 'components/modal/modal.png';
 
 const ESC_KEY = 'Escape';
 
@@ -59,6 +60,7 @@ export const Modal = ({
       <Styled.ModalBase className={className} onClick={(e) => e.stopPropagation()} data-qa="modal">
         <Styled.ModalBackground $canAnimate={canAnimate} />
         <Styled.ModalPosition $position={position} $canAnimate={canAnimate} onClick={handleClickOutside}>
+          <Styled.ModalImage src={modal.src} />
           <Styled.ModalBody
             $maxWidth={maxWidth}
             $maxHeight={maxHeight}

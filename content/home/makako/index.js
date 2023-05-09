@@ -1,5 +1,5 @@
 export class Makako {
-  constructor(wedding, config, final) {
+  constructor(wedding, config, final, isPhone) {
     this.wedding = wedding;
     this.width = config.width;
     this.height = config.height;
@@ -12,7 +12,15 @@ export class Makako {
     this.position = config.position;
     this.frameX = 0;
     this.frameY = 0;
-    this.dx = this.position.directionX ? (this.position.directionX === 'right' ? 1800 : -280) : config.position.x;
+    this.dx = this.position.directionX
+      ? this.position.directionX === 'right'
+        ? isPhone
+          ? 1300
+          : 1800
+        : isPhone
+        ? 200
+        : -280
+      : config.position.x;
     this.dy = this.position.directionY ? (this.position.directionY === 'top' ? 700 : -200) : config.position.y;
     this.speed = config.speed || 1;
     this.state = 'static';
@@ -142,7 +150,6 @@ export class Makako {
   }
 
   updateRising({ currentTime }) {
-    console.log(this.frameX, this.frameY, this.dy, this.dx);
     if (currentTime - this.previousTime >= this.animationTiming / 4) {
       if (this.dy > this.y) {
         this.movingOnScreen = true;
@@ -258,14 +265,14 @@ export class Makako {
   }
 }
 
-export default function makakos(wedding, config) {
-  const noncsim = new Makako(wedding, config.makakos.noncsim);
-  const danim = new Makako(wedding, config.makakos.danim);
-  const madar = new Makako(wedding, config.makakos.madar, true);
+export default function makakos(wedding, config, isPhone) {
+  const noncsim = new Makako(wedding, config.makakos.noncsim, false, isPhone);
+  const danim = new Makako(wedding, config.makakos.danim, false, isPhone);
+  const madar = new Makako(wedding, config.makakos.madar, true, isPhone);
 
-  const nap = new Makako(wedding, config.sky.nap);
-  const felhoNagy = new Makako(wedding, config.sky.felhoNagy);
-  const felhoKicsi = new Makako(wedding, config.sky.felhoKicsi);
+  const nap = new Makako(wedding, config.sky.nap, false, isPhone);
+  const felhoNagy = new Makako(wedding, config.sky.felhoNagy, false, isPhone);
+  const felhoKicsi = new Makako(wedding, config.sky.felhoKicsi, false, isPhone);
 
   return {
     noncsim,

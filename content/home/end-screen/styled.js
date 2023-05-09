@@ -35,3 +35,39 @@ export const Felhok = styled.div`
   display: flex;
   animation: ${anim} linear 800ms;
 `;
+
+export const Content = styled.div`
+  ${({ theme }) => theme.fonts.brandon};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: ${({ theme }) => theme.turquoise};
+  max-width: 680px;
+`;
+
+export const LargeHeader = styled.h1`
+  ${({ theme }) => theme.fonts.handelson};
+  color: ${({ theme }) => theme.white};
+  font-weight: 400;
+  font-size: 100px;
+  line-height: 110px;
+`;
+
+export const SubHeader = styled.h2`
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 32px;
+`;
+
+export const InviteText = styled.p`
+  font-weight: normal;
+  font-size: 18px;
+
+  strong {
+    color: ${({ theme }) => theme.white};
+  }
+`;
+
+export const Small = styled.small``;

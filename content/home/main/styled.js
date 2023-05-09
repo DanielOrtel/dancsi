@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { query } from '../../../utils/media';
 
 export const Main = styled.div`
   position: fixed;
@@ -23,7 +24,7 @@ export const Container = styled.div`
 
 export const Nap = styled.div`
   padding: 24px;
-  display: ${({ $starting }) => ($starting ? 'none' : 'flex')};;
+  display: ${({ $starting }) => ($starting ? 'none' : 'flex')};
   opacity: ${({ $start }) => ($start ? 0 : 1)};
   will-change: opacity;
   transition: opacity 800ms ease-in-out;
@@ -37,19 +38,39 @@ export const Felhok = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 48px;
-  display: ${({ $starting }) => ($starting ? 'none' : 'flex')};;
+  display: ${({ $starting }) => ($starting ? 'none' : 'flex')};
   visibility: ${({ $loading }) => ($loading ? 'hidden' : 'visible')};
   opacity: ${({ $loading, $start }) => ($loading || $start ? 0 : 1)};
   will-change: opacity;
   transition: opacity 800ms ease-in-out;
 `;
 
+export const Text = styled.p`
+  font-weight: normal;
+  font-size: 18px;
+  padding: 0 8px;
+  text-align: center;
+  color: ${({ theme }) => theme.turquoise};
+
+  display: ${({ $starting }) => ($starting ? 'none' : 'block')};
+  visibility: ${({ $loading }) => ($loading ? 'hidden' : 'visible')};
+  opacity: ${({ $loading, $start }) => ($loading || $start ? 0 : 1)};
+`;
+
 export const FelhoKicsi = styled.div`
   position: relative;
   left: 36px;
+
+  ${query.phone`
+    left: 48px;
+  `}
 `;
 
 export const FelhoNagy = styled.div`
   position: relative;
   left: -48px;
-`
+
+  ${query.phone`
+    left: -18px;
+  `}
+`;
