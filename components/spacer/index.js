@@ -9,4 +9,6 @@ const Spacer = React.forwardRef(({ as, children, x, y, className, ...rest }, ref
   );
 });
 
+Spacer.displayName = 'Spacer';
+
 export default Spacer;
