@@ -225,19 +225,19 @@ export const animationElements = (layers, elements, sky, makakos, isPhone) => ({
   },
   makakos: {
     noncsim: {
-      width: 285,
-      height: 451,
+      width: 314 ,
+      height: 432,
       sequenceY: {
         walking: 0,
         idle: 1
       },
       sequenceX: {
-        walking: [0, 1, 2, 3, 4, 5, 6, 7, 5, 4],
-        idle: [0, 1, 2, 1, 2, 1, 0]
+        walking: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        idle: [1, 2, 3, 2, 3, 2, 1, 2, 1, 2, 1]
       },
       position: {
         x: 920,
-        y: 560,
+        y: 540,
         directionX: 'right'
       },
       image: makakos[0]

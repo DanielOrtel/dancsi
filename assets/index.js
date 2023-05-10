@@ -30,7 +30,7 @@ import rokaGomba from './elements/roka-gomba-jobb-oldal.png';
 import zoldPafrany from './elements/zold-pafrany.png';
 import jobbDomb from './elements/jobb-domb.png'
 // makakok
-import noncsim from './makakok/noncsim-sprite-3.png';
+import noncsim from './makakok/noncsim-sprite-10.png';
 import danim from './makakok/danim-sprite.png';
 import madar from './makakok/madar-sprite.png';
 
