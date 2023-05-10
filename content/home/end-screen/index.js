@@ -37,28 +37,31 @@ export default function EndScreen() {
             <Styled.LargeHeader>Dani és Noncsi</Styled.LargeHeader>
             <Spacer y={4} />
             <Styled.SubHeader>Kedves családunk és barátaink!</Styled.SubHeader>
-            <Spacer y={6} />
+            <Spacer y={4} />
             <Styled.InviteText>
               Szeretettel meghívunk, hogy velünk örüljetek, mikor 2023 június 17-én 13 órakor Benedekmezőn egybekelünk. <b /> Tartsatok
               velünk e csodás napon!
             </Styled.InviteText>
-            <Spacer y={8} />
+            <Spacer y={6} />
 
             <InfoButtons />
-            <Spacer y={8} />
+            <Spacer y={6} />
 
             <Styled.InviteText>
               <strong>Dresscode:</strong> kerti-parti öltözet, amiben kényelmesen érzed magad, nem ajánlott a magassarkú lábbeli a talaj
               miatt.
             </Styled.InviteText>
-            <Spacer y={8} />
+            <Spacer y={6} />
             <Styled.InviteText>
               Kérjük részvételi szándékotokat május 25-ig jelezzétek, illetve töltsétek ki az alábbi kérdőívet!
             </Styled.InviteText>
-            <Spacer y={8} />
-            <Button src={felhoFeher.src} width="360px" onClick={openUrl}>
-              KÉRDŐÍV
-            </Button>
+            <Spacer y={6} />
+            <div>
+              <Button src={felhoFeher.src} width="360px" onClick={openUrl}>
+                KÉRDŐÍV
+              </Button>
+            </div>
+
             <Spacer y={5} />
             <Styled.Small>Illusztráció: Csibi Boróka; Design: Jakab Eszter; Zene: Musspell; Minden más: a jövendőbeli pár.</Styled.Small>
           </ModalContent>

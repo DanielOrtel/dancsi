@@ -49,19 +49,19 @@ export const LargeHeader = styled.h1`
   ${({ theme }) => theme.fonts.handelson};
   color: ${({ theme }) => theme.white};
   font-weight: 400;
-  font-size: 100px;
+  font-size: 84px;
   line-height: 110px;
 `;
 
 export const SubHeader = styled.h2`
   text-transform: uppercase;
   font-weight: normal;
-  font-size: 32px;
+  font-size: 28px;
 `;
 
 export const InviteText = styled.p`
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
 
   strong {
     color: ${({ theme }) => theme.white};
