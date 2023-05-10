@@ -35,7 +35,21 @@ export default function Home() {
 
   const [over, setOver] = useState(false);
 
-  useEffect(() => {
+  useEffect(
+    () => {
+      document.addEventListener('touchstart', iosBullshit);
+      // iOS 9
+      document.addEventListener('touchend', iosBullshit);
+
+      return () => {
+        document.removeEventListener('touchstart', iosBullshit);
+        document.removeEventListener('touchend', iosBullshit);
+      }
+    }
+  )
+
+  const iosBullshit = () => {
+    if(makakokRef.current) return;
     makakokRef.current = new Audio('/makakok.wav');
     const makakoLoopContext = new AudioContext();
 
@@ -57,6 +71,14 @@ export default function Home() {
     const setLoadedMakakok = () => setMakakokLoaded(true);
 
     makakok.addEventListener('canplaythrough', setLoadedMakakok);
+    makakok.load();
+
+    document.removeEventListener('touchstart', iosBullshit);
+    document.removeEventListener('touchend', iosBullshit);
+  }
+
+  useEffect(() => {
+    iosBullshit();
   }, []);
 
   const loading = useMemo(
@@ -64,9 +86,11 @@ export default function Home() {
     [makakokLoaded, backgroundAssetsLoaded, elementsAssetsLoaded, makakoAssetsLoaded, skyAssetsLoaded]
   );
 
+
   return (
     <Page>
       <Main loading={loading} start={start} setStart={setStart} />
+      {hasErrors && <p>Valami nem sikeült, probáld meg megint.</p>}
       {start && (
         <AnimationLayer
           backgroundAssets={backgroundAssets}

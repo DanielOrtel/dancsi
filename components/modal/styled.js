@@ -228,8 +228,8 @@ export const ModalBody = styled.div`
         `;
       case MODAL_SIZES.regular:
         return css`
-          flex-basis: 1020px;
-          max-width: 1020px;
+          flex-basis: 680px;
+          max-width: 680px;
           max-height: calc(100vh - 160px);
           height: 100%;
           min-height: 10vh;

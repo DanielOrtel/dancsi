@@ -13,7 +13,12 @@ const anim = keyframes`
 `;
 
 export const Container = styled.div`
-  position: absolute;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -37,14 +42,7 @@ export const Felhok = styled.div`
 `;
 
 export const Content = styled.div`
-  ${({ theme }) => theme.fonts.brandon};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  color: ${({ theme }) => theme.turquoise};
-  max-width: 680px;
+
 `;
 
 export const LargeHeader = styled.h1`

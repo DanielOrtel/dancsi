@@ -39,24 +39,24 @@ export default function Main({ start, setStart, loading }) {
         <Styled.Felhok $starting={isStarting} $start={start} $loading={loading}>
           <Styled.FelhoNagy>
             <Button src={felhoNagy.src} width={start ? '240px' : '360px'} onClick={() => setStart(true)}>
-              Indítsd el
+              Indítsd
             </Button>
           </Styled.FelhoNagy>
           <Styled.FelhoKicsi>
             <Button src={felhoKicsi.src} width={start ? '200px' : '300px'} onClick={() => setStart(true)}>
-              Indítsd el
+              El
             </Button>
           </Styled.FelhoKicsi>
         </Styled.Felhok>
         <Spacer y={6} />
-        <Styled.Text $starting={isStarting} $start={start} $loading={loading}>Evel a meghívóval jár kisérő zene is. Ha nem otthon vagy, ajánlott a fülhallgató.</Styled.Text>
-        <Spacer y={4} />
-        {isPhone && (
-          <>
-            <Styled.Text $starting={isStarting} $start={start} $loading={loading}>Jobb egy rendes képernyöröl megnézni. Mobilon nem az igazi.</Styled.Text>
-            <Spacer y={4} />
-          </>
-        )}
+        <Styled.TextWrapper $starting={isStarting} $start={start} $loading={loading}>
+          <Styled.Text>Ezzel a meghívóval kisérő zene is jár. Ha nem otthonról nézed, ajánlott a fülhallgató.</Styled.Text>
+          <Spacer y={4} />
+          {isPhone && (
+              <Styled.Text>Jobb egy rendes képernyöröl megnézni. Mobilon nem az igazi.</Styled.Text>
+          )}
+          <Spacer y={4} />
+        </Styled.TextWrapper>
       </Styled.Container>
     </Styled.Main>
   );
