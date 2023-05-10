@@ -50,7 +50,7 @@ export default function Main({ start, setStart, loading }) {
         </Styled.Felhok>
         <Spacer y={6} />
         <Styled.TextWrapper $starting={isStarting} $start={start} $loading={loading}>
-          <Styled.Text>Ezzel a meghívóval kisérő zene is jár. Ha nem otthonról nézed, ajánlott a fülhallgató.</Styled.Text>
+          <Styled.Text>Ezzel a meghívóval kísérő zene is jár. Ha nem otthonról nézed, ajánlott a fülhallgató.</Styled.Text>
           <Spacer y={4} />
           {isPhone && (
               <Styled.Text>Jobb egy rendes képernyöröl megnézni. Mobilon nem az igazi.</Styled.Text>
