@@ -53,7 +53,7 @@ export default function EndScreen() {
             </Styled.InviteText>
             <Spacer y={6} />
             <Styled.InviteText>
-              Kérjük részvételi szándékotokat május 25-ig jelezzétek, illetve töltsétek ki az alábbi kérdőívet!
+              Kérjük részvételi szándékotokat május 31-ig jelezzétek, illetve töltsétek ki az alábbi kérdőívet!
             </Styled.InviteText>
             <Spacer y={6} />
             <div>
